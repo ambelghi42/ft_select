@@ -6,7 +6,7 @@
 /*   By: ambelghi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 13:34:27 by ambelghi          #+#    #+#             */
-/*   Updated: 2020/01/13 17:00:00 by ambelghi         ###   ########.fr       */
+/*   Updated: 2020/01/13 18:23:02 by ambelghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	**ft_tabdup(char **tab)
 {
 	char	**dup;
 	int		i;
-	
+
 	dup = NULL;
 	if (tab)
 	{
