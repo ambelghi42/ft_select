@@ -6,7 +6,7 @@
 /*   By: ambelghi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 16:27:29 by ambelghi          #+#    #+#             */
-/*   Updated: 2020/01/13 16:45:02 by ambelghi         ###   ########.fr       */
+/*   Updated: 2020/01/14 19:44:13 by ambelghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include "libft.h"
+#include <signal.h>
 #include <sys/ioctl.h>
 
 int		scroll_nb(t_cs *cs)
@@ -101,7 +102,7 @@ void	ft_enter(t_cs **cs)
 		i = 0;
 		while ((tmp = tmp->next))
 		{
-			if (tmp->is_select && i++ && (tmp_str = ret) >= 0)
+			if (tmp->is_select && ++i && (tmp_str = ret) >= 0)
 			{
 				ret = ft_strjoin(ret, " ");
 				ft_strdel(&tmp_str);
@@ -137,7 +138,7 @@ int		check_keys(char *caps)
 		space_bar(cs);
 	if (caps[0] == 127)
 		ret = back_space(cs);
-	if (caps[0] == 13 && (ret = -1) < 0)
+	if (caps[0] == '\n' && (ret = -1) < 0)
 		ft_enter(&cs);
 	if (ft_strlen(caps) == 1 && caps[0] == 27 && (ret = -1) < 0)
 		ft_clear();

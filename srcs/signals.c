@@ -6,7 +6,7 @@
 /*   By: ambelghi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 14:27:55 by ambelghi          #+#    #+#             */
-/*   Updated: 2020/01/13 14:33:37 by ambelghi         ###   ########.fr       */
+/*   Updated: 2020/01/16 14:32:07 by ambelghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,23 @@ void	pause_handler(int sig)
 
 	if (sig == SIGCONT && (cs = cs_master(NULL, 0)))
 		term_init(2, cs->av);
-	if (sig == SIGTSTP && (cs = cs_master(NULL, 0)))
+	if ((sig == SIGTSTP  || sig == SIGTTIN || sig == SIGTTOU || sig == SIGSTOP)
+		&& (cs = cs_master(NULL, 0)))
 	{
-		signal(SIGTSTP, SIG_DFL);
 		term_init(0, cs->av);
+		signal(SIGTSTP, SIG_DFL);
+		signal(SIGTTIN, SIG_DFL);
+		signal(SIGTTOU, SIG_DFL);
+		signal(SIGSTOP, SIG_DFL);
+		ioctl(cs->tty, TIOCSTI, "\x1A");
 	}
 }
 
 void	sig_handler(int sig)
 {
-	term_init(0, NULL);
-	if (sig == SIGINT)
+	if (sig >= 0)
 	{
+		term_init(0, NULL);
 		exit(1);
 	}
 }

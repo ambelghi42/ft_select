@@ -6,7 +6,7 @@
 /*   By: ambelghi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/02 17:01:55 by ambelghi          #+#    #+#             */
-/*   Updated: 2020/01/13 14:32:05 by ambelghi         ###   ########.fr       */
+/*   Updated: 2020/01/14 19:32:26 by ambelghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	ft_clear(void)
 	{
 		col.x = cs->min_col;
 		col.y = cs->min_row;
-		ioctl(0, TIOCGWINSZ, &ws);
+		ioctl(cs->tty, TIOCGWINSZ, &ws);
 		tputs(tgoto(tgetstr("cm", NULL), cs->min_col, cs->min_row),
 				1, &my_putchar);
 		while (col.y++ <= ws.ws_row)
