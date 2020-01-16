@@ -6,7 +6,7 @@
 /*   By: ambelghi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 14:23:13 by ambelghi          #+#    #+#             */
-/*   Updated: 2020/01/16 14:58:01 by ambelghi         ###   ########.fr       */
+/*   Updated: 2020/01/16 17:58:53 by ambelghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int		term_check(struct termios *new_term, struct termios *old_term, int tty)
 			ft_putstr_fd("ft_select: Unvalid environnement\n", 2);
 		if (ret && tgetent(NULL, getenv("TERM")) == 0 && !(ret = 0))
 		{
-			ft_putstr_fd("ft_select: Could not retrieve terminal", 2); 
+			ft_putstr_fd("ft_select: Could not retrieve terminal", 2);
 			ft_putstr_fd(" in terminfo database\n", 2);
 		}
 		else if (ret && tgetent(NULL, getenv("TERM")) == -1 && !(ret = 0))

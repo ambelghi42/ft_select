@@ -6,7 +6,7 @@
 /*   By: ambelghi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 14:27:55 by ambelghi          #+#    #+#             */
-/*   Updated: 2020/01/16 14:32:07 by ambelghi         ###   ########.fr       */
+/*   Updated: 2020/01/16 17:57:01 by ambelghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	pause_handler(int sig)
 
 	if (sig == SIGCONT && (cs = cs_master(NULL, 0)))
 		term_init(2, cs->av);
-	if ((sig == SIGTSTP  || sig == SIGTTIN || sig == SIGTTOU || sig == SIGSTOP)
+	if ((sig == SIGTSTP || sig == SIGTTIN || sig == SIGTTOU || sig == SIGSTOP)
 		&& (cs = cs_master(NULL, 0)))
 	{
 		term_init(0, cs->av);

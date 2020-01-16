@@ -6,7 +6,7 @@
 /*   By: ambelghi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 20:47:25 by ambelghi          #+#    #+#             */
-/*   Updated: 2020/01/13 16:36:12 by ambelghi         ###   ########.fr       */
+/*   Updated: 2020/01/16 17:59:48 by ambelghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,8 @@ void			cs_moveme(t_point *ew, t_cs *tmp);
 void			print_colme(t_select_lst *tmp, t_point max, t_cs *cs);
 void			print_colmvcs(int scroll, t_point tmp_col, t_cs *cs);
 void			putchar_n(char c, int n);
+int				term_check(struct termios *new_term, struct termios *old_term,
+							int tty);
+void			init_signals(void);
 
 #endif

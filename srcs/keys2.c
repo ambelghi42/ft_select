@@ -6,7 +6,7 @@
 /*   By: ambelghi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 16:27:29 by ambelghi          #+#    #+#             */
-/*   Updated: 2020/01/14 19:44:13 by ambelghi         ###   ########.fr       */
+/*   Updated: 2020/01/16 17:57:53 by ambelghi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,8 @@ int		check_keys(char *caps)
 		arrow_left(cs);
 	if (ft_strcmp(caps, "\e[C") == 0 && (ret = 1))
 		arrow_right(cs);
-	if (ft_strcmp(caps, "\e[B") == 0 && (ret = 1))
+	if ((ft_strcmp(caps, "\e[B") == 0 || ft_strcmp(caps, "\x09") == 0)
+		&& (ret = 1))
 		arrow_down(cs);
 	if (ft_strcmp(caps, "\e[A") == 0 && (ret = 1))
 		arrow_up(cs);
