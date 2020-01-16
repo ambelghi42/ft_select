@@ -2,7 +2,7 @@
 
 <b>ft_select a 42 school project.</b><br><br>
 ft_select allows you to pick from a list of choices displayed in the terminal, and return it to your shell.<br><br>
-Using arrows : move freely in the list of choices.<br>
+Using arrows or tab : move freely in the list of choices.<br>
 Using spacebar : select/unselect a choice.<br>
 Using backspace : delete a choice (selected or not) from the list displayed.<br>
 Using enter : quit and return selected choices to the shell.<br>
